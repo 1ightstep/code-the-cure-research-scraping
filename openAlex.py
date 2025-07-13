@@ -1,12 +1,12 @@
 import requests
 
 query = "cancer"
-per_page = 5
+perPage = 5
 
 url = f"https://api.openalex.org/works"
 params = {
     "search": query,
-    "per-page": per_page
+    "per-page": perPage
 }
 headers = {
     "User-Agent": "codethecure@gmail.com"
@@ -15,7 +15,7 @@ headers = {
 response = requests.get(url, params=params, headers=headers)
 papers = response.json()["results"]
 
-for i, paper in enumerate(papers):
+for index, paper in enumerate(papers):
     title = paper.get("title", "No title")
     abstract = paper.get("abstract_inverted_index", None)
     doi = paper.get("doi", "No DOI")
@@ -27,7 +27,7 @@ for i, paper in enumerate(papers):
     else:
         abstract_text = "No abstract"
 
-    print(f"{i+1}. Title: {title}")
+    print(f"{index+1}. Title: {title}")
     print(f"DOI: {doi}")
     print(f"Link: {link}")
     print(f"Abstract: {abstract_text}")

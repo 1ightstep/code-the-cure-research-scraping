@@ -1,7 +1,7 @@
 import requests
 
 query = "cancer"
-page_size = 10
+pageSize = 10
 format = "json"
 
 url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
