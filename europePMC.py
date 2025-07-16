@@ -1,7 +1,7 @@
 import requests
 
 query = "cancer"
-pageSize = 10
+page_size = 10
 format = "json"
 
 url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
@@ -18,6 +18,7 @@ data = response.json()
 results = data.get("resultList", {}).get("result", [])
 
 for index, paper in enumerate(results):
+    print(paper)
     title = paper.get("title", "No title")
     abstract = paper.get("abstractText", "No abstract")
     doi = paper.get("doi", "No DOI")
